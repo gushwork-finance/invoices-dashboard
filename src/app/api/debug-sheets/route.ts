@@ -1,6 +1,10 @@
 ﻿import { NextResponse } from "next/server";
 import { google } from "googleapis";
 
+// Next 15 renders GET route handlers per request by default. Next 14 built this one
+// once at deploy time. Keep it static so the upgrade does not change what it exposes.
+export const dynamic = "force-static";
+
 export async function GET() {
   const log: Record<string, unknown> = {};
 
